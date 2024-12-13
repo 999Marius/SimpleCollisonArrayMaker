@@ -95,12 +95,17 @@ public class CollisionMaker extends JFrame {
 
     private void saveCollision() {
         try {
-            PrintWriter writer = new PrintWriter("res/LevelMapsCollisons/collisionMap.txt");
-            writer.println(collisionMap[0].length + ','+ collisionMap.length);
+            PrintWriter writer = new PrintWriter("res/LevelMapsCollisons/" + mapName +".txt");
+            writer.println(collisionMap[0].length + " "+ collisionMap.length);
             for (int row = 0; row < collisionMap.length; row++) {
+               //writer.print("{");
                 for (int col = 0; col < collisionMap[0].length; col++) {
                     writer.print(collisionMap[row][col] ? "1" : "0");
-                    if (col < collisionMap[0].length - 1) writer.print(",");
+                    if (col < collisionMap[0].length - 1) writer.print(" ");
+                }
+                //writer.print("}");
+                if(row != collisionMap.length - 1){
+                  //  writer.print(",");
                 }
                 writer.println();
             }
